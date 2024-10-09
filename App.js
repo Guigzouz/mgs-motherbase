@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+import { Typography } from "./src/components/atoms";
+import { Container } from "./src/components/atoms";
+import { ActionCategoryMenu } from "./src/components/molecules";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View>
+      <Container.Card>
+        <Typography.Title>Big Titre</Typography.Title>
+      </Container.Card>
+
+      <ActionCategoryMenu
+        onMenuChange={(arg) => {
+          setMenu(arg);
+        }}
+        configs={[
+          { displayName: "Human Resources", slug: "human-resources" },
+          { displayName: "R&D", slug: "reasearch-and-devlopment" },
+          { displayName: "External OPS", slug: "external-operations" },
+        ]}
+      ></ActionCategoryMenu>
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
