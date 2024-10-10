@@ -1,4 +1,4 @@
-import Card from "./Card";
+import AbsoluteCard from "./AbsoluteCard";
 import Menu from "./Menu";
 
-export { Card, Menu };
+export { AbsoluteCard, Menu };
