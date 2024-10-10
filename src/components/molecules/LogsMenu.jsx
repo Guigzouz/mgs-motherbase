@@ -1,13 +1,12 @@
 import { Container, Typography, Button, Icon } from "../atoms";
 
-const ActionCategoryMenu = ({ configs, onMenuChange = (arg) => {} }) => {
+const LogsMenu = ({ configs }) => {
   console.log(configs);
   return (
     <Container.Menu>
       {configs.map((config, i) => {
         return (
           <Button.Base key={i}>
-            <Typography.Title>{config.displayName}</Typography.Title>
             <Icon.Base
               iconName={config.iconName}
               iconSize={config.iconSize}
@@ -20,4 +19,4 @@ const ActionCategoryMenu = ({ configs, onMenuChange = (arg) => {} }) => {
   );
 };
 
-export default ActionCategoryMenu;
+export default LogsMenu;

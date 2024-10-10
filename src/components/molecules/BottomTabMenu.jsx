@@ -1,23 +1,23 @@
 import { Container, Typography, Button, Icon } from "../atoms";
 
-const ActionCategoryMenu = ({ configs, onMenuChange = (arg) => {} }) => {
+const BottomTabMenu = ({ configs, onMenuChange = (arg) => {} }) => {
   console.log(configs);
   return (
     <Container.Menu>
       {configs.map((config, i) => {
         return (
-          <Button.Base key={i}>
-            <Typography.Title>{config.displayName}</Typography.Title>
+          <Button.Tab key={i}>
             <Icon.Base
               iconName={config.iconName}
               iconSize={config.iconSize}
               iconColor={config.iconColor}
             ></Icon.Base>
-          </Button.Base>
+            <Typography.Title>{config.displayName}</Typography.Title>
+          </Button.Tab>
         );
       })}
     </Container.Menu>
   );
 };
 
-export default ActionCategoryMenu;
+export default BottomTabMenu;
