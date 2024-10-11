@@ -3,7 +3,7 @@ import { Container, Typography, Button, Icon } from "../atoms";
 const ActionCategoryMenu = ({ configs, onMenuChange = (arg) => {} }) => {
   console.log(configs);
   return (
-    <Container.Menu>
+    <Container.Menu style={{ gap: 15 }}>
       {configs.map((config, i) => {
         return (
           <Button.Base key={i}>
