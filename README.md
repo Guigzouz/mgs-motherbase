@@ -18,4 +18,4 @@ npm install
 npm run start
 ```
 
-Scan the QR code with the Expo app or open the project in your web browsernpm run start
+Scan the QR code with the Expo app or open the project in your web browser
