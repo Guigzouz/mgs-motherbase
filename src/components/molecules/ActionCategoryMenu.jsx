@@ -7,7 +7,11 @@ const ActionCategoryMenu = ({ configs, onMenuChange = (arg) => {} }) => {
       {configs.map((config, i) => {
         return (
           <Button.Base key={i}>
-            <Typography.Title>{config.displayName}</Typography.Title>
+            <Typography.Paragraph
+              style={{ fontFamily: "redensek", fontSize: "20" }}
+            >
+              {config.displayName}
+            </Typography.Paragraph>
             <Icon.Base
               iconName={config.iconName}
               iconSize={config.iconSize}

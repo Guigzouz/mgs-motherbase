@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { Container, Typography, Button, Icon } from "../atoms";
 
 const BottomTabMenu = ({ configs, onMenuChange = (arg) => {} }) => {
@@ -14,17 +15,26 @@ const BottomTabMenu = ({ configs, onMenuChange = (arg) => {} }) => {
     >
       {configs.map((config, i) => {
         return (
-          <Button.Tab
-            key={i}
-            style={{ display: "flex", padding: 5, alignItems: "center" }}
-          >
-            <Icon.Base
-              iconName={config.iconName}
-              iconSize={config.iconSize}
-              iconColor={config.iconColor}
-            ></Icon.Base>
-            <Typography.Title>{config.displayName}</Typography.Title>
-          </Button.Tab>
+          <Link href={config.slug} key={i} asChild>
+            <Button.Tab
+              style={{ display: "flex", padding: 5, alignItems: "center" }}
+            >
+              <Icon.Base
+                iconName={config.iconName}
+                iconSize={config.iconSize}
+                iconColor={config.iconColor}
+              ></Icon.Base>
+              <Typography.Paragraph
+                style={{
+                  color: config.iconColor,
+                  fontFamily: "redensek",
+                  fontSize: "20",
+                }}
+              >
+                {config.displayName}
+              </Typography.Paragraph>
+            </Button.Tab>
+          </Link>
         );
       })}
     </Container.Menu>

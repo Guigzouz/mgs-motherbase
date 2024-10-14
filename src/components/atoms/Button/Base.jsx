@@ -22,6 +22,7 @@ const StyledBase = styled(TouchableOpacity)`
   align-items: center;
   padding: 15px 20px;
   border: solid;
+  fontfamily: "redensek";
 `;
 
 const StyledButtonIconOnly = styled(TouchableOpacity)`
