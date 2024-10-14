@@ -1,27 +1,61 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import { Icon, Typography } from "./src/components/atoms";
-import { Container } from "./src/components/atoms";
-import { ActionCategoryMenu } from "./src/components/molecules";
-import { LogsMenu } from "./src/components/molecules";
-import Input from "./src/components/atoms/Input/Base";
 import styled from "styled-components/native";
-import BottomTabMenu from "./src/components/molecules/BottomTabMenu";
+
+import { Icon, Typography } from "../src/components/atoms";
+import { Container } from "../src/components/atoms";
+import { ActionCategoryMenu } from "../src/components/molecules";
+import { LogsMenu } from "../src/components/molecules";
+import Input from "../src/components/atoms/Input/Base";
+import BottomTabMenu from "../src/components/molecules/BottomTabMenu";
+import { MovingDisplay } from "../src/components/atoms/Container";
+import Three from "../src/components/pages/Three";
+
 const StyledViewTest = styled.View`
   width: 100%;
   justify-content: space-between;
+  height: 100%;
+  padding: 20px;
 `;
 
 const user = {
   nickName: "Revolver Moose",
+  pim: 498,
 };
 
 export default function App() {
   return (
     <StyledViewTest>
-      <Typography.Title style={{ fontSize: 28, padding: 25 }}>
-        {user.nickName}'s MB
-      </Typography.Title>
+      <View>
+        <MovingDisplay
+          style={{
+            backgroudColor: "red",
+          }}
+        >
+          <Typography.Title
+            style={{
+              fontSize: 36,
+              paddingHorizontal: 25,
+              paddingTop: 25,
+              paddingBottom: 10,
+              fontFamily: "redensek",
+            }}
+          >
+            {user.nickName}'s MB
+          </Typography.Title>
+        </MovingDisplay>
+        <Typography.Title
+          style={{
+            fontFamily: "redensek",
+            fontSize: 24,
+            paddingHorizontal: 25,
+          }}
+        >
+          PIM Count : {user.pim}
+        </Typography.Title>
+      </View>
+
+      <Three></Three>
 
       <Container.AbsoluteCard>
         <LogsMenu
@@ -46,6 +80,7 @@ export default function App() {
               displayName: "Human Resources",
               slug: "human-resources",
               iconName: "child",
+              fontFamily: "redensek",
             },
             {
               displayName: "R&D",
@@ -60,14 +95,12 @@ export default function App() {
           ]}
         ></ActionCategoryMenu>
         <BottomTabMenu
-          onMenuChange={(arg) => {
-            setMenu(arg);
-          }}
           configs={[
             {
               displayName: "Home",
-              slug: "home",
+              slug: "",
               iconName: "home",
+              iconColor: "#FFFF00",
             },
             {
               displayName: "Profile",
