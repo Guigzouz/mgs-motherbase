@@ -9,6 +9,7 @@ import { LogsMenu } from "../src/components/molecules";
 import Input from "../src/components/atoms/Input/Base";
 import BottomTabMenu from "../src/components/molecules/BottomTabMenu";
 import { MovingDisplay } from "../src/components/atoms/Container";
+import Three from "../src/components/pages/Three";
 
 const StyledViewTest = styled.View`
   width: 100%;
@@ -53,6 +54,8 @@ export default function App() {
           PIM Count : {user.pim}
         </Typography.Title>
       </View>
+
+      <Three></Three>
 
       <Container.AbsoluteCard>
         <LogsMenu
