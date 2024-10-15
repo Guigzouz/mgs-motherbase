@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import styled from "styled-components/native";
+import { useFonts } from "expo-font";
 
 import { Icon, Typography } from "../src/components/atoms";
 import { Container } from "../src/components/atoms";
@@ -9,7 +10,7 @@ import { LogsMenu } from "../src/components/molecules";
 import Input from "../src/components/atoms/Input/Base";
 import BottomTabMenu from "../src/components/molecules/BottomTabMenu";
 import { MovingDisplay } from "../src/components/atoms/Container";
-import Three from "../src/components/pages/Three";
+import HumanResourcesScene from "../src/components/pages/HumanResources";
 
 const StyledViewTest = styled.View`
   width: 100%;
@@ -27,9 +28,9 @@ export default function App() {
   return (
     <StyledViewTest>
       <View>
-        <MovingDisplay
+        <Container.MovingDisplay
           style={{
-            backgroudColor: "red",
+            overflow: "hidden",
           }}
         >
           <Typography.Title
@@ -39,11 +40,12 @@ export default function App() {
               paddingTop: 25,
               paddingBottom: 10,
               fontFamily: "redensek",
+              whiteSpace: "nowrap",
             }}
           >
             {user.nickName}'s MB
           </Typography.Title>
-        </MovingDisplay>
+        </Container.MovingDisplay>
         <Typography.Title
           style={{
             fontFamily: "redensek",
@@ -54,8 +56,6 @@ export default function App() {
           PIM Count : {user.pim}
         </Typography.Title>
       </View>
-
-      <Three></Three>
 
       <Container.AbsoluteCard>
         <LogsMenu
@@ -70,6 +70,7 @@ export default function App() {
         ></LogsMenu>
       </Container.AbsoluteCard>
 
+      <HumanResourcesScene></HumanResourcesScene>
       <View>
         <ActionCategoryMenu
           onMenuChange={(arg) => {
