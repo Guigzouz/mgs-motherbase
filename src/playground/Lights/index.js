@@ -1,3 +1,4 @@
 import Point from "./Point";
+import Ambient from "./Ambiant";
 
-export { Point };
+export { Point, Ambient };

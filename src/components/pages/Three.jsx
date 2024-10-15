@@ -5,30 +5,19 @@ import { OrbitControls } from "@react-three/drei";
 
 const Three = () => {
   return (
-    <Scene>
-      <OrbitControls></OrbitControls>
-      <Lights.Point position={[0, 0, 1]}></Lights.Point>
-      <Meshs.Box materials={{ color: "blue" }}></Meshs.Box>
-      <Meshs.Box
-        mesh={{ position: [1, 1, 0] }}
-        materials={{ color: "red" }}
-      ></Meshs.Box>
-      <Meshs.Box
+    <Scene camera={{ position: [0, -5, 0], fov: 75 }}>
+      <OrbitControls />
+      <Lights.Ambient position={[0, -2, 5]} />
+
+      {/* 3D Hexagon mesh with animation */}
+      <Meshs.Hexagon
         animation={(meshRef, state, delta, frame) => {
-          meshRef.current.rotation.x += 0.1;
+          meshRef.current.rotation.z += 0.5 * delta;
         }}
         mesh={{ position: [0, 1, 0] }}
-        materials={{ color: "green" }}
-      ></Meshs.Box>
-      <Meshs.Box
-        animation={(meshRef, state, delta, frame) => {
-          meshRef.current.rotation.x += 1 * delta;
-          meshRef.current.rotation.y += 1 * delta;
-          meshRef.current.rotation.z += 1 * delta;
-        }}
-        mesh={{ position: [1, 0, 0] }}
-        materials={{ color: "yellow" }}
-      ></Meshs.Box>
+        materials={{ color: "orange" }}
+        depth={0.8} // Extruding the Meshs.Hexagon to be thicker
+      />
     </Scene>
   );
 };
